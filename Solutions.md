@@ -1,6 +1,6 @@
-#Leetcode SQL 50
+# Leetcode SQL 50
 
-1. **1757. Recyclable and Low Fat Products**
+### 1 - 1757. Recyclable and Low Fat Products
 ```sql
 SELECT
     product_id
@@ -11,8 +11,11 @@ WHERE
     AND recyclable = 'Y'
 ```
 
+<br>
 
-2. **584. Find Customer Referee**
+---
+
+### 2 - 584. Find Customer Referee
 ```sql
 SELECT
     name
@@ -22,8 +25,10 @@ WHERE
     referee_id != 2
     OR referee_id IS NULL
 ```
+<br>
 
-3. **595. Big Countries**
+---
+### 3 - 595. Big Countries
 ```sql
 SELECT
     name, population, area
@@ -33,8 +38,10 @@ WHERE
     area >= 3000000
     OR population >= 25000000
 ```
+<br>
 
-4. **1683. Invalid Tweets**
+---
+### 4 - 1683. Invalid Tweets
 ```sql
 SELECT 
     tweet_id
@@ -44,9 +51,13 @@ WHERE
     -- LENGTH(content) > 15
     CHAR_LENGTH(content) > 15
 ```
-Using `CHAR_LENGTH` instead of `LENGTH` to count characters instead of bytes.
+ Using `CHAR_LENGTH` instead of `LENGTH` to count characters instead of bytes.
 
-5. **1148. Article Views I**
+<br>
+
+---
+
+### 5 - 1148. Article Views I
 ```sql
 SELECT DISTINCT
     author_id AS id
