@@ -71,3 +71,31 @@ ORDER BY
     id
 ```
 
+<br>
+---
+
+### 6 - 1378. Replace Employee ID With The Unique Identifier
+```sql
+SELECT
+    unique_id,
+    name
+FROM
+    Employees e
+    LEFT JOIN EmployeeUNI eu ON e.id = eu.id
+    ```
+<br>
+---
+
+### 7 - 1068. Product Sales Analysis I
+```sql
+SELECT
+    product_name, year, price
+FROM 
+    Sales s
+    JOIN Product p ON s.product_id = p.product_id
+    ```
+<br>
+---
+
+### 8 - 1581. Customer Who Visited but Did Not Make Any Transactions
+```sql
