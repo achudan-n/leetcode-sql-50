@@ -103,3 +103,58 @@ FROM
 
 ### 8 - 1581. Customer Who Visited but Did Not Make Any Transactions
 ```sql
+SELECT
+    customer_id, 
+    COUNT(v.visit_id) AS count_no_trans
+FROM
+    Visits v
+    LEFT JOIN Transactions t ON v.visit_id = t.visit_id
+WHERE 
+    transaction_id IS NULL
+GROUP BY
+    customer_id
+```
+<br>
+
+---
+### 9 - 197. Rising Temperature
+```sql
+SELECT
+    w2.Id
+FROM
+    Weather w1
+    JOIN Weather w2 ON DATEDIFF(w2.recordDate, w1.recordDate) = 1
+WHERE
+    w1.temperature < w2.temperature
+```
+
+Using LAG:
+```sql
+WITH 
+    previous AS (
+        SELECT
+            id, 
+            recordDate,
+            temperature,
+            LAG(recordDate, 1) OVER (ORDER BY recordDate) AS prev_date,
+            LAG(temperature, 1) OVER (ORDER BY recordDate) AS prev_temp
+        FROM 
+            Weather
+    )
+
+SELECT 
+    Id
+FROM
+    previous
+WHERE 
+    DATEDIFF(recordDate, prev_date) = 1
+    AND temperature > prev_temp
+```
+
+`DATEDIFF` is needed here even though LAG is used to calculate the previous date, because there might be missing dates in the table.
+
+<br>
+
+---
+
+### 10 - 
