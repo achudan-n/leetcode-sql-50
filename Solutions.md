@@ -51,7 +51,9 @@ WHERE
     -- LENGTH(content) > 15
     CHAR_LENGTH(content) > 15
 ```
- Using `CHAR_LENGTH` instead of `LENGTH` to count characters instead of bytes.
+
+`CHAR_LENGTH(string)` returns the number of characters. <br>
+`LENGTH(string)` returns the number of bytes (for multi-byte characters, this can differ).
 
 <br>
 
